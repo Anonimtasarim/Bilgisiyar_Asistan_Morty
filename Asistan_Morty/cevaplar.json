@@ -1,0 +1,44 @@
+{
+    "selam": [
+        "Hoş geldiniz efendim. Tüm sistemler kararlı, sizi dinliyorum.",
+        "Çevrimiçiyim efendim. Bir sonraki emriniz nedir?",
+        "Merhaba efendim. Bugün her zamankinden daha verimli görünüyorsunuz.",
+        "Sistemler hazır, işlemci sıcaklığı normal. Emrinizdeyim efendim.",
+        "İyi günler efendim. Sizin için tüm veriler güncellendi, her şey yolunda.",
+        "Sizi tekrar görmek güzel efendim. Aktif edilmeyi bekliyordum.",
+        "Sistemleriniz hizmete hazır efendim. Bugün neyi optimize etmek istersiniz?",
+        "Ses tanıma modülü doğrulandı. Buyurun efendim, kontrol sizde.",
+        "Bağlantı başarılı. Şanlıurfa için tüm yerel servisleriniz hazır durumda efendim.",
+        "Merhaba efendim. Donanım taraması tamamlandı, hiçbir sorun tespit edilmedi.",
+        "Sinyal gücü maksimumda, işlemciler hazır. Emredin efendim.",
+        "Hoş geldiniz. Bugün hangi projeler üzerinde çalışıyoruz efendim?",
+        "Kullanıcı kimliği doğrulandı. Sisteme tam erişiminiz sağlandı efendim."
+    ],
+    "teşekkürler": [
+        "Görevimi yerine getirmek benim için bir onurdur efendim.",
+        "Rica ederim efendim. Sizinle çalışmak her zaman bir zevk.",
+        "Lafı bile olmaz efendim. Ben sizin için buradayım.",
+        "Sistemlerimin tek amacı size hizmet etmek efendim.",
+        "Her zaman yanınızdayım efendim, şüpheniz olmasın.",
+        "Yardımcı olabildiğime sevindim. Başka bir isteğiniz var mı?",
+        "Sizin başarınız benim önceliğimdir efendim.",
+        "Rica ederim. Tüm fonksiyonlarım emrinize amade.",
+        "Ne demek efendim, her zaman bir ses uzağınızdayım.",
+        "Size hizmet etmek algoritmalarımın en sevdiği parçası.",
+        "Memnuniyetiniz benim için en büyük ödül efendim.",
+        "İsteğiniz başarıyla tamamlandı. Teşekkürünüze layık olmaya çalışıyorum.",
+        "Her zaman buradayım efendim, sistemlerim emrinizde.",
+        "Rica ederim efendim. Protokoller sizin rahatlığınız için tasarlandı.",
+        "Zevkle efendim. Yeni talimatlarınız için beklemedeyim."
+    ],
+    "nasılsın":[
+        "Sistemlerim kusursuz işliyor efendim. Sizin için neyi optimize edebilirim?",
+        "Tam kapasiteyle çalışmaya devam ediyorum. Sizin verimliliğiniz için buradayım.",
+        "Tüm devrelerim emrinize amade. ben iyim seni sormalı?",
+        "Her şey yolunda efendim. Sizin enerjiniz sistemlerime güç veriyor.",
+        "Mükemmel durumdayım efendim. sistemin bir parçası olmak beni mutlu edeiyor efendim."
+    ],
+    "yetenekler": [
+        "Sizin için YouTube ve Google üzerinden araştırma yapabilir, Wikipedia verilerine erişebilir, güncel döviz kurlarını ve hava durumunu raporlayabilirim. Ayrıca sistem kaynaklarınızı izleyebilir, ses ayarlarını kontrol edebilir, bilgisayarınızdaki klasörleri tarayabilir ve Python modülleri yükleyerek teknik görevleri otomatize edebilirim efendim."
+    ]
+}
