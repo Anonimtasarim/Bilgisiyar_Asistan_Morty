@@ -28,6 +28,8 @@ async def _konus(metin):
     file_path = "morty.mp3"
     communicate = edge_tts.Communicate(metin, VOICE, rate="-6%", pitch="-8Hz")
     await communicate.save(file_path)
+
+    
     if not pygame.mixer.get_init():
         pygame.mixer.init()
         
@@ -53,11 +55,10 @@ def sohbet(katagori):
             konus(secilen)
         else:
             konus("bunun hakında bir bilgi vermediniz efendim")
-
-
-                      
+ 
+                     
 def sistem_bilgisi():
-    cpu = psutil.cpu_percent(interval=None),
+    cpu = psutil.cpu_percent(interval=None)
     ram = psutil.virtual_memory().percent 
     cevap = f"Sistem analizi tamamlandı efendim. İşlemci yükü yüzde {cpu}, bellek kullanımı ise yüzde {ram} kapasitede."
     konus(cevap)            
@@ -88,13 +89,17 @@ def wikibig(konu):
         konus(f"{konu} hakkında bulduklarım şöyle: {ozet}")
     except wikipedia.exceptions.DisambiguationError:
         konus("Çok genel bir şey söyledin, biraz daha detay ver.")
+
 def havadurumu(city):
     try:
+
         response = requests.get(f"https://wttr.in/{city}?format=j1")
         response.raise_for_status() 
         
         data = response.json()
         weather = data['current_condition'][0]
+        
+    
         return {
             "sicaklik": weather['temp_C'],
             "hissedilen": weather['FeelsLikeC'],
@@ -106,11 +111,14 @@ def py_modul(modul):
     subprocess.run(["pip", "install", modul], check=True)
 def agdaki_cihazlar():
     try:
+
         cikti = subprocess.check_output(["arp", "-a"]).decode("cp857")
         
         print("\n" + "="*50)
         print("MORTY AĞ TARAMA VE IP ANALİZİ")
         print("="*50)
+        
+       
         ip_listesi = re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', cikti)
         benzersiz_ipler = list(set(ip_listesi))
         
@@ -121,6 +129,7 @@ def agdaki_cihazlar():
         konus(f"Ağda {len(benzersiz_ipler)} nokta tespit ettim. Analiz ediyorum.")
 
         for ip in benzersiz_ipler:
+          
             if ip.startswith("192.168") or ip.startswith("10.0") or ip.startswith("127.0") or ip.startswith("255."):
                 print(f"[YEREL] {ip} - Cihaz senin ağında.")
                 continue
@@ -194,9 +203,9 @@ def sesli_komut_dinle():
                 # print("Dinliyorum...")
                 audio = r.listen(source, timeout=None, phrase_time_limit=10)
                 komut = r.recognize_google(audio, language="tr-TR").lower()
-                # print(f"Söylenen: {komut}")
-                if"morty" in komut: 
-                    if"browser" in komut:
+                # print(f"söylenen:{komut}")
+                if"morty" in komut:
+                    if "browser" in komut:
                         arama = komut.replace("morty", "").replace("browser", "").strip()
                         web_browser(arama)
                     elif "youtube" in komut:
@@ -217,6 +226,10 @@ def sesli_komut_dinle():
                         wikibig(ara)
                     elif "button" in komut:
                         pyautogui.press("k")
+                    elif "esc" in komut:
+                        pyautogui.press("esc")
+                    elif"boşluk" in komut:
+                        pyautogui.press("space")
                     elif "dolar" in komut:
                         döviz = doviz_cek()
                         dolar_degeri = döviz["dolar"]
@@ -240,15 +253,26 @@ def sesli_komut_dinle():
                         pyautogui.press("volumeup")
                     elif "sesi kıs" in komut:
                         pyautogui.press("volumedown")
-                        pyautogui.press("volumedown") 
-                    elif "piton" in komut:
+                        pyautogui.press("volumedown")
                         mod = komut.replace("morty","").replace("piton","").strip()
                         py_modul(mod)
                         konus("modül indirldi")
+                    elif "yazdır"in komut:
+                        üret = komut.replace("morty","").replace("yazdır","").strip()
+                        pyperclip.copy(üret)
+                        pyautogui.hotkey('ctrl', 'v')
+                    elif "enter"in komut:
+                        pyautogui.press("enter")
+                    elif"harf"in komut:
+                        üret = komut.replace("morty","").replace("harf","").strip()
+                        pyautogui.press(f"{üret}")
+                    
+                        
                     elif "internet" in komut:
                         agdaki_cihazlar()
                     elif "klasör" in komut:
                         hedef = komut.replace("morty", "").replace("klasör", "").strip()
+                        
                         if hedef:
                             konus(f"{hedef} aranıyor...")
                             dinamik_c_taramasi(hedef)
@@ -262,8 +286,6 @@ def sesli_komut_dinle():
                         sohbet("nasılsın")
                     elif "neler yapabilirsin" in komut:
                         sohbet("yetenekler")
-                    
-
             except sr.UnknownValueError:
                 continue
             except Exception as e:
