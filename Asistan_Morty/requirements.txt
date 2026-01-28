@@ -1,17 +1,18 @@
-# Temal Kütüphaneler
+# Temel Kütüphaneler
 requests
-BeautifulSoup4
+beautifulsoup4
 pygame
 
 # Ses İşleme ve Yapay Zeka
 edge-tts
 SpeechRecognition
 wikipedia
+pyaudio
 
 # Sistem ve Otomasyon
 pyautogui
 pyperclip
 psutil
 
-# Web Arayüzü (Flask Kullanıyorsan)
+# Web Arayüzü
 flask
