@@ -1,27 +1,29 @@
-# 🎙️ Asistan Morty - Sesli Asistan Projesi (v1.0.1)
+# 🎙️ Asistan Morty - Sesli Otomasyon & Sistem Yönetimi (v1.0.1)
 
-Asistan Morty; Python tabanlı, Windows sistemleriyle derin entegrasyon sağlayan, günlük işleri ve teknik süreçleri sesli komutlarla yönetebilen gelişmiş bir dijital asistandır.
+Asistan Morty; Python tabanlı, Windows sistemleriyle derin entegrasyon sağlayan, günlük işleri, sistem yönetimini ve teknik süreçleri sesli komutlarla yönetebilen **modüler bir otomasyon hub'ıdır.**
 
 ## 🚀 Öne Çıkan Özellikler
 
-- **Gelişmiş Ses Deneyimi:** Google Speech Recognition ile hassas tanıma ve `edge-tts` (Azure altyapısı) ile doğal Türkçe seslendirme.
+- **Gelişmiş Ses Deneyimi:** Google Speech Recognition ile hassas tanıma ve `edge-tts` (Azure altyapısı) ile doğal Türkçe seslendirme (`AhmetNeural`).
     
-- **Teknik Denetim:** "Piton" komutuyla sesli kütüphane (pip) yükleme ve sistem kaynaklarını (CPU/RAM) anlık izleme.
+- **Sistem Otomasyonu:** Dinamik klasör tarama (C sürücüsünde akıllı arama), işletim sistemi seviyesinde kapatma/uygulama kontrolleri.
     
-- **Multimedya Hakimiyeti:** YouTube, YouTube Müzik ve **Spotify** üzerinden içerik başlatma; donanımsal ses kontrolü.
+- **Ağ Analizi (Network):** `ARP` protokolü üzerinden yerel ağdaki (LAN) cihazları listeleme ve dış IP'lerin coğrafi konum analizi.
     
-- **Haber & Bilgi:** Technopat ve IGN üzerinden güncel haber başlıkları, Wikipedia özetleri ve canlı döviz kurları.
+- **Teknik Denetim:** "Piton" komutuyla dinamik kütüphane (`pip`) yükleme ve `psutil` ile CPU/RAM kaynaklarını anlık izleme.
     
-- **Sistem Otomasyonu:** Dinamik klasör tarama ve yerel ağdaki (LAN) cihazları listeleme.
+- **Gelişmiş Multimedya:** YouTube, YouTube Müzik ve Spotify üzerinden içerik yönetimi; ses seviyesi ve klavye kısayol simülasyonları (`pyautogui`).
     
-- **Karakterli Etkileşim:** `cevaplar.json` mimarisi ile doğal selamlaşma ve akıllı sohbet yeteneği.
+- **Haber & Bilgi Entegrasyonu:** Technopat ve IGN üzerinden scraping ile güncel haber başlıkları, Wikipedia özetleri ve `wttr.in` üzerinden canlı hava durumu.
+    
+- **Akıllı Diyalog:** `cevaplar.json` mimarisi ile genişletilebilir sohbet yeteneği ve durum farkındalığı.
     
 
 ---
 
 ## 🛠️ Kurulum
 
-Sisteminizde **Python 3.7+** yüklü olduğundan emin olun.
+Sisteminizde **Python 3.8+** yüklü olduğundan emin olun.
 
 ### 1. Projeyi İndirin
 
@@ -34,62 +36,37 @@ cd asistan-morty
 
 ### 2. Bağımlılıkları Yükleyin
 
+Proje, sistem seviyesi kütüphaneler kullandığı için bağımlılıkların eksiksiz kurulması önemlidir:
+
 Bash
 
 ```
 pip install -r requirements.txt
 ```
 
-> **Not:** `PyAudio` kurulumunda hata alırsanız Windows için `pip install pipwin` ve `pipwin install pyaudio` komutlarını kullanın.
-
 ---
 
-## 🖥️ Kullanım ve Komut Örnekleri
+## 🖥️ Komut ve Yetenek Örnekleri
 
-Asistanı başlatmak için: `python Asistan_Morty.py`
-
-|**Kategori**|**Komut Örneği**|**İşlev**|
+|**Kategori**|**Komut Örneği**|**Teknik İşlev**|
 |---|---|---|
-|**Sohbet**|"Morty selam" / "Morty nasılsın?"|Karşılıklı etkileşim kurar.|
-|**Bilgi**|"Morty wikipedia Elon Musk"|Wikipedia özetini okur.|
-|**Müzik**|"Morty spotify Barış Manço"|Spotify araması başlatır.|
-|**Sistem**|"Morty sistem bilgisi"|CPU ve RAM kullanımını söyler.|
-|**Geliştirici**|"Morty piton pandas"|Pandas kütüphanesini yükler.|
-|**Finans**|"Morty dolar kaç tl?"|Güncel kuru bildirir.|
-|**Navigasyon**|"Morty klasör indirilenler"|İlgili klasörü tarar.|
+|**Sistem Analizi**|"Morty sistem bilgisi"|Anlık CPU ve RAM yüzdesini raporlar.|
+|**Geliştirici**|"Morty piton [modül_adı]"|`subprocess` ile arka planda pip kurulumu yapar.|
+|**Dosya Sistemi**|"Morty klasör [isim]"|`os.walk` ile dinamik dizin taraması ve explorer açılışı.|
+|**Ağ Güvenliği**|"Morty internet"|ARP tablosunu çeker ve IP-API üzerinden analiz yapar.|
+|**Bilgi Servisi**|"Morty hava durumu [şehir]"|REST API üzerinden anlık durum ve sıcaklık çeker.|
+|**Klavye Kontrol**|"Morty yazdır [metin]"|`pyperclip` ve `hotkey` simülasyonu ile metin yapıştırır.|
 
 ---
 
 ## 📂 Proje Yapısı
 
-- `Asistan_Morty.py`: Ana motor ve komut yönetim merkezi.
+- `Asistan_Morty.py`: Ana asenkron döngü ve komut yönetim merkezi.
     
-- `cevaplar.json`: Diyalog veri seti ve asistan hafızası.
+- `cevaplar.json`: JSON tabanlı diyalog seti ve asistan hafızası.
     
-- `sesli_haber.py`: Web scraping (haber çekme) modülü.
+- `sesli_haber.py`: BeautifulSoup tabanlı haber scraping modülü.
     
-- `kur.py`: API tabanlı finansal veri çekme modülü.
+- `kur.py`: Finansal veri çekme (Döviz/Altın) modülü.
     
-- `requirements.txt`: Gerekli tüm kütüphanelerin listesi.
-    
-
----
-
-## ⚠️ Önemli Hatırlatmalar
-
-- **İnternet:** Ses tanıma ve TTS motoru için stabil bir internet bağlantısı şarttır.
-    
-- **İzinler:** Dosya tarama ve pip yükleme gibi özellikler için terminalin **Yönetici** olarak çalıştırılması önerilir.
-    
-- **Gizlilik:** `Asistan_Morty.py` içindeki kişisel dosya yollarını kendi bilgisayarınıza göre düzenlediğinizden emin olun.
-    
-
----
-
-### **Neler Değişti?**
-
-1. **Sürüm Numarası:** v1.0.1 olarak güncellendi.
-    
-2. **Tablo:** Spotify ve "Piton" (modül yükleme) komutları eklendi.
-    
-3. **Özellikler:** Sistem bilgisi ve klasör tarama gibi teknik detaylar vurgulandı.
+- `requirements.txt`: Projenin çalışması için gereken tüm kütüphaneler.
